@@ -16,18 +16,24 @@ var CONFIG = {
 		answer: "CRM AALI", // case-insensitive, spaces trimmed
 		hint: "Hint: Her name starts with CRM... ✨"
 	},
-	// 10 notes revealed when popping the 10 balloons (H-B-D-C-R-M-A-A-L-I)
+	// 16 notes revealed when popping the 16 balloons (H-A-P-P-Y  B-I-R-T-H-D-A-Y  C-R-M)
 	balloonNotes: [
 		"H: You make every single day brighter ☀️",
-		"B: Your smile is my absolute favorite sight 🌸",
-		"D: I love the way your eyes sparkle ✨",
-		"C: You're truly one of a kind 💖",
-		"R: Every conversation with you is special 💌",
-		"M: Your kindness inspires everyone around you 🕊️",
-		"A: You deserve all the happiness in the world 🌌",
-		"A: Thank you for being my favorite person 🌷",
-		"L: Keep shining your wonderful light 🌟",
-		"I: Forever cheering for you, CRM AALI 🎂"
+		"A: Always keep that radiant smile on your face 🌸",
+		"P: Pure magic is what you bring into my life ✨",
+		"P: Precious moments with you are my absolute favorite 💖",
+		"Y: You are truly one in a billion 🌟",
+		"B: Beautiful soul inside and out 🌷",
+		"I: I love the genuine way your eyes sparkle 💫",
+		"R: Radiating warmth, kindness, and joy 🕊️",
+		"T: Thank you for being such a wonderful person 💌",
+		"H: Having you around makes everything better 🌼",
+		"D: Deserving of every piece of happiness today and always 🎂",
+		"A: All your biggest dreams are going to come true 🌌",
+		"Y: Your laughter is the sweetest melody 🥰",
+		"C: Cheers to another incredible year ahead 🥂",
+		"R: Remember how special you are to me ❤️",
+		"M: May this year be your happiest and most blessed yet ✨"
 	],
 	voiceNotePath: "assets/media/voice-note.mp3",
 	playlistUrl: "https://open.spotify.com"
@@ -35,12 +41,12 @@ var CONFIG = {
 
 // Global references & state
 var vw, W, H, narrow;
-var N = 10;
+var N = 16;
 var placed = false;
-var rows = [[0,1,2,3,4,5,6,7,8,9]];
-var wordStarts = [3, 6]; // HBD | CRM | AALI
+var rows = [[0,1,2,3,4],[5,6,7,8,9,10,11,12],[13,14,15]];
+var wordStarts = [5, 13]; // HAPPY (0-4) | BIRTHDAY (5-12) | CRM (13-15)
 var s = 100;
-var rowTop = 200, rowStep = 160;
+var rowTop = 180, rowStep = 110;
 var root = document.documentElement.style;
 var micStream = null;
 var audioCtx = null;
@@ -87,10 +93,14 @@ function layout(){
 	vw = W / 2;
 	narrow = W < 1000;
 	if (!narrow){
-		s = Math.max(52, Math.min(88, Math.floor(W * 0.52 / 10.1)));
-		rows = [[0,1,2,3,4,5,6,7,8,9]];
-		rowTop = 180;
-		var greetingTop = rowTop + Math.round(s * 1.83) + 12;
+		// Desktop: 2 balanced rows -> HAPPY (5) / BIRTHDAY CRM (11)
+		// Or 3 rows: HAPPY (5) / BIRTHDAY (8) / CRM (3)
+		rows = [[0,1,2,3,4], [5,6,7,8,9,10,11,12], [13,14,15]];
+		s = Math.max(46, Math.min(76, Math.floor(W * 0.55 / 8.5)));
+		rowTop = 150;
+		rowStep = Math.round(s * 1.35);
+		var totalBalloonHeight = (rows.length - 1) * rowStep + Math.round(s * 1.83);
+		var greetingTop = rowTop + totalBalloonHeight + 14;
 		var cakeTop = greetingTop + 76;
 		var cakeBottom = cakeTop + 300;
 		root.setProperty('--pw', Math.max(140, Math.min(260, W * 0.15)) + 'px');
@@ -99,32 +109,34 @@ function layout(){
 		root.setProperty('--cs', 1);
 		root.setProperty('--msg-top', Math.round(Math.min(cakeBottom + 60, H - 90)) + 'px');
 	} else {
-		s = Math.max(34, Math.min(70, Math.floor((W - 16) / 6)));
-		rows = [[0,1,2,3,4,5],[6,7,8,9]]; // "HBD CRM" / "AALI"
+		// Mobile / tablet: 3 rows -> HAPPY (5) / BIRTHDAY (8) / CRM (3)
+		rows = [[0,1,2,3,4], [5,6,7,8,9,10,11,12], [13,14,15]];
+		s = Math.max(28, Math.min(52, Math.floor((W - 16) / 8.2)));
 		var inner = W < 768 ? W - 30 : 720;
 		var bannerH = Math.min(inner, 470) * 147 / 470;
-		var pw = Math.min(140, Math.floor((W - 24) / 4));
-		var cs = Math.min(0.9, Math.max(0.6, W / 500));
+		var pw = Math.min(130, Math.floor((W - 24) / 4));
+		var cs = Math.min(0.85, Math.max(0.55, W / 520));
 		var greetingTop, albumTop, cakeTop, cakeBottom;
 		
 		for (var tries = 0; tries < 15; tries++){
-			rowTop = 56 + bannerH + 6;
-			rowStep = Math.round(s * 1.48);
-			greetingTop = rowTop + rowStep + Math.round(s * 1.83) + 4;
+			rowTop = 50 + bannerH + 6;
+			rowStep = Math.round(s * 1.38);
+			var totalBalloonH = (rows.length - 1) * rowStep + Math.round(s * 1.83);
+			greetingTop = rowTop + totalBalloonH + 6;
 			var greetingH = 74;
 			albumTop = greetingTop + greetingH + 6;
-			cakeTop = albumTop + Math.round(pw * 0.75) + 24 - Math.round(95 * cs);
+			cakeTop = albumTop + Math.round(pw * 0.75) + 20 - Math.round(95 * cs);
 			cakeBottom = cakeTop + 300 * cs;
-			if (cakeBottom + 65 <= H || (s <= 32 && cs <= 0.48)) break;
-			s  = Math.max(30, s - 3);
-			cs = Math.max(0.46, cs - 0.03);
+			if (cakeBottom + 65 <= H || (s <= 26 && cs <= 0.45)) break;
+			s  = Math.max(25, s - 2);
+			cs = Math.max(0.42, cs - 0.03);
 		}
 		root.setProperty('--pw', pw + 'px');
 		root.setProperty('--greeting-top', Math.round(greetingTop) + 'px');
 		root.setProperty('--album-top', Math.round(albumTop) + 'px');
 		root.setProperty('--cs', cs);
 		root.setProperty('--cake-top', Math.round(cakeTop) + 'px');
-		root.setProperty('--msg-top', Math.round(Math.min(cakeBottom + 55, H - 90)) + 'px');
+		root.setProperty('--msg-top', Math.round(Math.min(cakeBottom + 50, H - 90)) + 'px');
 	}
 	root.setProperty('--s', s + 'px');
 }
@@ -434,7 +446,7 @@ $(document).ready(function(){
 		clearTimeout(btnTimer);
 		$(this).stop(true, true).hide();
 		$('.balloon-border').animate({ top: -500 }, 8000);
-		for (var i = 1; i <= 10; i++){
+		for (var i = 1; i <= N; i++){
 			$('#b' + i).addClass(i % 2 ? 'balloons-rotate-behaviour-one' : 'balloons-rotate-behaviour-two');
 			loopBalloon(i);
 		}
