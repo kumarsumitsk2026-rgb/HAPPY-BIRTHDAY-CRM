@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"><!-- <![endif]-->
+
+<head>
+  <title>Happy Birthday CRM AALI</title>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Happy Birthday CRM AALI">
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#ffd9b8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="css/loading.css">
+  <link href='https://fonts.googleapis.com/css?family=Signika:400,700' rel='stylesheet' type='text/css'>
+  <style type="text/css" id="less:birthday-cake">
+    /* ============================================== POSITION */
+    .cake {
+      position: absolute;
+      display: none;
+      left: 50%;
+      margin-left: -150px;
+      width: 300px;
+      height: 300px;
+      z-index: 200;
+    }
+
+    /* ============================================== BASE */
+    .cake:after {
+      background: #ffffff;
+      border-radius: 300px;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 300px;
+      height: 6px;
+    }
+
+    /* ============================================== Candle */
+    .velas {
+      background: #ffffff;
+      border-radius: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -7.5px;
+      margin-top: -25px;
+      width: 15px;
+      height: 50px;
+      cursor: pointer;
+    }
+
+    .velas:after,
+    .velas:before {
+      background: rgba(255, 0, 0, 0.4);
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 6.66666667px;
+    }
+
+    .velas:after {
+      top: 25%;
+      left: 0;
+    }
+
+    .velas:before {
+      top: 45%;
+      left: 0;
+    }
+
+    /* ============================================== Fire */
+    .fuego {
+      display: none;
+      border-radius: 100%;
+      box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      margin-left: -10px;
+      width: 20px;
+      height: 37.5px;
+      cursor: pointer;
+    }
+
+    .fuego:nth-child(1) {
+      animation: fuego 2s infinite;
+    }
+
+    .fuego:nth-child(2) {
+      animation: fuego 1.5s infinite;
+    }
+
+    .fuego:nth-child(3) {
+      animation: fuego 1s infinite;
+    }
+
+    .fuego:nth-child(4) {
+      animation: fuego 0.5s infinite;
+    }
+
+    .fuego:nth-child(5) {
+      animation: fuego 0.2s infinite;
+    }
+
+    @keyframes fuego {
+      0% {
+        background: rgba(254, 248, 97, 0.5);
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        background: rgba(255, 50, 0, 0.1);
+        transform: translateY(-60px) scale(0);
+      }
+
+      100% {
+        background: rgba(254, 248, 97, 0.5);
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* ============================================== Frosting */
+    .cobertura {
+      background: #ece7e3;
+      border-radius: 150px;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      margin-left: -83.33333333px;
+      margin-top: -15px;
+      width: 166.66666667px;
+      height: 37.5px;
+      z-index: 10;
+    }
+
+    .cobertura:after,
+    .cobertura:before {
+      background: #ece7e3;
+      border-radius: 300px;
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 30px;
+    }
+
+    .cobertura:after {
+      top: 20px;
+      right: 42.85714286px;
+    }
+
+    .cobertura:before {
+      top: 30px;
+      right: 27.27272727px;
+    }
+
+    /* ============================================== BIZCOCHO */
+    .bizcocho {
+      background: #6d3826;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      margin-left: -75px;
+      width: 150px;
+      height: 100px;
+    }
+
+    .bizcocho:after,
+    .bizcocho:before {
+      background: rgba(236, 231, 227, 0.6);
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 15px;
+    }
+
+    .bizcocho:after {
+      top: 30%;
+      left: 0;
+    }
+
+    .bizcocho:before {
+      top: 60%;
+      left: 0;
+    }
+
+    .profile-img {
+      position: absolute;
+      bottom: 30px;
+      right: -170px;
+      width: 150px;
+      height: 150px;
+      border: 5px solid white;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      object-fit: cover;
+      object-position: top center;
+      /* keep face visible, not cropped to middle */
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="css/enhance.css">
+</head>
+
+<body>
+  <div class="loading"></div>
+
+  <!-- 1. Opening Screen + Optional Privacy Gate -->
+  <div id="intro-screen" class="intro-screen">
+    <div class="intro-card">
+      <div class="intro-icon">🎁</div>
+      <h1 class="intro-title">Happy Birthday</h1>
+      <div class="intro-subtitle">For CRM AALI ✨</div>
+
+      <!-- Optional Privacy Gate (configured in effect.js) -->
+      <div id="privacy-box" class="privacy-box" style="display:none;">
+        <div class="privacy-q" id="privacy-q">Who is the prettiest girl in the world?</div>
+        <div class="privacy-input-wrap">
+          <input type="text" id="privacy-input" placeholder="Type your answer..." autocomplete="off">
+        </div>
+        <div class="privacy-hint" id="privacy-hint"></div>
+        <button id="privacy-btn" class="btn btn-primary intro-btn">Unlock Surprise ✨</button>
+      </div>
+
+      <div id="start-wrap">
+        <button id="start-btn" class="btn btn-primary intro-btn">Tap to begin 🎁</button>
+        <p class="intro-audio-note">🔊 Turn up your sound for music & celebration</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating sparkles & hearts -->
+  <div id="sparkles" aria-hidden="true"></div>
+
+  <!-- 2. Album Photos as Polaroids with handwritten captions -->
+  <div class="polaroid album-left-1" data-caption="That smile that melts my heart ✨">
+    <img src="assets/images/photo1.jpg" alt="CRM AALI Photo 1">
+    <div class="polaroid-caption">That smile that melts my heart ✨</div>
+  </div>
+  <div class="polaroid album-left-2" data-caption="Every moment with you is magic 💖">
+    <img src="assets/images/photo2.jpg" alt="CRM AALI Photo 2">
+    <div class="polaroid-caption">Every moment with you is magic 💖</div>
+  </div>
+  <div class="polaroid album-right-1" data-caption="Unfiltered, radiant, and true 🌸">
+    <img src="assets/images/photo3.jpg" alt="CRM AALI Photo 3">
+    <div class="polaroid-caption">Unfiltered, radiant, and true 🌸</div>
+  </div>
+  <div class="polaroid album-right-2" data-caption="My favorite person in the world 🥰">
+    <img src="assets/images/photo4.jpg" alt="CRM AALI Photo 4">
+    <div class="polaroid-caption">BAAKI SB MAI BHUL GYA🥰</div>
+  </div>
+
+  <!-- Hint image -->
+  <img src="assets/images/can-zoom.png" class="can-zoom" alt="Can zoom hint">
+
+  <!-- Audio Element (faded in & looped) -->
+  <audio class="song" loop preload="auto">
+    <source src="assets/audio/hbd.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Balloons: H B D C R M A A L I -->
+  <div class="balloons text-center c1" id="b1">
+    <h2 style="color:#F2B300;">H</h2>
+  </div>
+  <div class="balloons text-center c2" id="b2">
+    <h2 style="color:#0719D4;">B</h2>
+  </div>
+  <div class="balloons text-center c3" id="b3">
+    <h2 style="color:#D14D39;">D</h2>
+  </div>
+  <div class="balloons text-center c4" id="b4">
+    <h2 style="color:#8FAD00;">C</h2>
+  </div>
+  <div class="balloons text-center c5" id="b5">
+    <h2 style="color:#8377E4;">R</h2>
+  </div>
+  <div class="balloons text-center c6" id="b6">
+    <h2 style="color:#99C96A;">M</h2>
+  </div>
+  <div class="balloons text-center c7" id="b7">
+    <h2 style="color:#20CFB4;">A</h2>
+  </div>
+  <div class="balloons text-center c8" id="b8">
+    <h2 style="color:#F2B300;">A</h2>
+  </div>
+  <div class="balloons text-center c1" id="b9">
+    <h2 style="color:#D14D39;">L</h2>
+  </div>
+  <div class="balloons text-center c2" id="b10">
+    <h2 style="color:#0719D4;">I</h2>
+  </div>
+  <img src="assets/images/Balloon-Border.png" width="100%" class="balloon-border" alt="Balloon Border">
+
+  <!-- Balloon Greeting under settled balloons -->
+  <div id="balloon-greeting" class="balloon-greeting" style="display:none;">
+    <h1 class="greeting-name">Happy Birthday, CRM AALI</h1>
+    <p class="greeting-sub">Made for you from past week</p>
+    <p class="greeting-date">31 October 2026 &bull; date to yaad nhi (days since we met)</p>
+    <div>
+      <span class="balloon-hint">🎈 Tap any balloon to pop a secret note! 🎈</span>
+      <button id="reinflate-balloons" class="btn-reinflate" style="display:none;">Reinflate Balloons 🎈</button>
+    </div>
+  </div>
+
+  <!-- Container for popped balloon floating notes -->
+  <div id="balloon-notes-container"></div>
+
+  <!-- Make a Wish Modal -->
+  <div id="wish-modal" class="wish-modal" style="display:none;">
+    <div class="wish-card">
+      <div class="wish-sparkle">✨🎂✨</div>
+      <h3>Make a Wish</h3>
+      <p>Close your eyes, make a wish, and type it below...</p>
+      <div class="wish-input-row">
+        <input type="text" id="wish-input" maxlength="120" placeholder="Type your birthday wish here..."
+          autocomplete="off">
+      </div>
+      <div class="wish-btn-row">
+        <button id="send-wish-btn" class="btn btn-primary">Send to the Stars ⭐</button>
+        <button id="skip-wish-btn" class="wish-skip-link">Skip wish &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-xs-2 bulb-holder">
+        <div class="bulb" id="bulb_yellow"></div>
+      </div>
+      <div class="col-md-2 col-xs-2 bulb-holder">
+        <div class="bulb" id="bulb_red"></div>
+      </div>
+      <div class="col-md-2 col-xs-2 bulb-holder">
+        <div class="bulb" id="bulb_blue"></div>
+      </div>
+      <div class="col-md-2 col-xs-2 bulb-holder">
+        <div class="bulb" id="bulb_green"></div>
+      </div>
+      <div class="col-md-2 col-xs-2 bulb-holder">
+        <div class="bulb" id="bulb_pink"></div>
+      </div>
+      <div class="col-md-2 col-xs-2 bulb-holder">
+        <div class="bulb" id="bulb_orange"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <img src="assets/images/banner.png" class="bannar" alt="Happy Birthday Banner">
+      </div>
+    </div>
+
+    <!-- Cake Section -->
+    <div class="row cake-cover">
+      <div class="col-md-12 text-center">
+        <div class="cake">
+          <div class="velas" id="candle-stick" title="Tap candle to blow flame">
+            <div class="fuego"></div>
+            <div class="fuego"></div>
+            <div class="fuego"></div>
+            <div class="fuego"></div>
+            <div class="fuego"></div>
+          </div>
+          <div class="cobertura"></div>
+          <img src="assets/images/person.png" class="profile-img" alt="CRM AALI">
+          <div class="bizcocho"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blow out candle helper banner -->
+    <div id="blow-hint" class="blow-hint" style="display:none;">
+      <span class="blow-icon">🌬️</span>
+      <span class="blow-msg">Blow into microphone or tap flame to blow out!</span>
+      <button id="tap-blow-btn" class="tap-blow-pill">Tap flame 🎂💨</button>
+    </div>
+
+    <!-- 3. Message Sequence with Skip button -->
+    <div class="row message">
+      <div class="col-md-12">
+        <p>Today is...</p>
+        <p>as beautiful as other days</p>
+        <p>but you realize</p>
+        <p>another year has gone</p>
+        <p>in a blink of the eyes</p>
+        <p><strong>however</strong></p>
+        <p>Do you know..?</p>
+        <p>today is just special</p>
+        <p>so special to you</p>
+        <p>that's why</p>
+        <p>Let's make it...</p>
+        <p>the best celebration ever</p>
+        <p>and let me share...</p>
+        <p>a piece of happiness to you</p>
+        <p>I made all this...</p>
+        <p>as a birthday present to you</p>
+        <p>I'm glad we met, date to yaad nhi par...</p>
+        <p>thanks for the friendship we made</p>
+        <p>thanks for everything</p>
+        <p>I wish you all the best</p>
+        <p>May your life be at ease</p>
+        <p>May all your wishes come true</p>
+        <p>Remember</p>
+        <p>your ambitions</p>
+        <p>you live as a free bird...</p>
+        <p>flying in the blue sky</p>
+        <p>Now things are different...</p>
+        <p>real story of your life</p>
+        <p>is just about to begin</p>
+        <p>indeed..</p>
+        <p>but...</p>
+        <p>don't worry</p>
+        <p>because...</p>
+        <p>God has your back</p>
+        <p>and</p>
+        <p>this year will be better</p>
+        <p>and I hope</p>
+        <p>you'll find...</p>
+        <p>happiness along the way</p>
+        <p>keep your spirit up</p>
+        <p>enjoy every single moment...</p>
+        <p>that you experience today</p>
+        <p>fill it with your most beautiful smile</p>
+        <p>and make it the best memory..</p>
+        <p>lastly...</p>
+        <p>I'd like to wish you one more time</p>
+        <p class="finale">Happy Birthday, CRM AALI ❤️</p>
+      </div>
+    </div>
+
+    <!-- Skip Button -->
+    <button id="skip_message" class="skip-btn" style="display:none;">Skip ⏭️</button>
+
+    <!-- Bottom Fixed Action Buttons -->
+    <div class="navbar navbar-fixed-bottom">
+      <div class="row">
+        <div class="col-md-6 text-center col-md-offset-3">
+          <button class="btn btn-primary" id="turn_on">Turn On Lights</button>
+          <button class="btn btn-primary" id="play" style="display:none;">Play the Music Buddy</button>
+          <button class="btn btn-primary" id="bannar_coming" style="display:none;">Let's Decorate</button>
+          <button class="btn btn-primary" id="balloons_flying" style="display:none;">Calm, i got you some
+            baloons</button>
+          <button class="btn btn-primary" id="cake_fadein" style="display:none;">Cake? of course!</button>
+          <button class="btn btn-primary" id="light_candle" style="display:none;">Don't forget to Light the
+            Candle</button>
+          <button class="btn btn-primary" id="wish_message" style="display:none;">Happy Birthday</button>
+          <button class="btn btn-primary" id="story" style="display:none;">A message for you</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Gift Ending: 3D Box & Modal -->
+  <div id="gift-wrapper" class="gift-wrapper" style="display:none;">
+    <div class="gift-box-anim" id="gift-box" role="button" aria-label="Open your gift">
+      <div class="gift-lid">
+        <div class="gift-bow"></div>
+      </div>
+      <div class="gift-body">
+        <div class="gift-ribbon-vertical"></div>
+      </div>
+      <div class="gift-sparkles-text">Tap to open your gift 🎁</div>
+    </div>
+  </div>
+
+  <!-- Gift Modal -->
+  <div id="gift-modal" class="gift-modal" style="display:none;">
+    <div class="gift-modal-backdrop"></div>
+    <div class="gift-modal-dialog">
+      <div class="gift-modal-body">
+        <div class="gift-modal-header">
+          <h2>🎁 Birthday Gift Box 🎁</h2>
+          <p>A few little promises, made with love for CRM AALI</p>
+        </div>
+
+        <!-- Coupons Section -->
+        <div class="coupons-container">
+          <div class="coupon-item">
+            <div class="coupon-badge">COUPON #1</div>
+            <div class="coupon-emoji">🍬</div>
+            <div class="coupon-content">
+              <h4>EK SANTRE WALI TOFFEE</h4>
+              <p>USSE JOGI HA TU</p>
+            </div>
+          </div>
+          <div class="coupon-item">
+            <div class="coupon-badge">COUPON #2</div>
+            <div class="coupon-emoji">🎬</div>
+            <div class="coupon-content">
+              <h4>Movie(KADI MAN KRA TERA TO)</h4>
+              <p>You pick the movie, endless snacks & blankets on me.</p>
+            </div>
+          </div>
+          <div class="coupon-item">
+            <div class="coupon-badge">COUPON #3</div>
+            <div class="coupon-emoji">🍦</div>
+            <div class="coupon-content">
+              <h4>Ice Cream</h4>
+              <p>favorite desserts.</p>
+            </div>
+          </div>
+          <div class="coupon-item">
+            <div class="coupon-badge">COUPON #4</div>
+            <div class="coupon-emoji">💆‍♀️</div>
+            <div class="coupon-content">
+              <h4>AUR</h4>
+              <p>AUR TO BS ITNA HI BYOT HAI</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Playlist Link -->
+        <div class="playlist-link-wrap">
+          <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="playlist-button">
+            🎵 Listen to Birthday Playlist 🎶
+          </a>
+        </div>
+
+        <!-- Voice Note / Media Player (hidden if file missing) -->
+        <div id="media-player-container" class="media-player-wrap" style="display:none;">
+          <div class="media-player-header">🎙️ A Little Voice Note For You</div>
+          <audio id="voice-note-audio" preload="metadata">
+            <source src="assets/media/voice-note.mp3" type="audio/mpeg">
+          </audio>
+          <div class="custom-vn-player">
+            <button id="vn-play-btn" class="vn-ctrl-btn" aria-label="Play audio">▶</button>
+            <div class="vn-track" id="vn-track">
+              <div class="vn-fill" id="vn-fill"></div>
+            </div>
+            <span class="vn-duration" id="vn-duration">0:00</span>
+          </div>
+          <div class="media-caption">"A little message from my heart to yours ❤️"</div>
+        </div>
+
+        <!-- Final Birthday Card -->
+        <div class="final-card-section">
+          <h1 class="final-card-name">Happy Birthday CRM AALI ❤️</h1>
+          <p class="final-card-sub">Made for you from past week</p>
+          <p class="final-card-meta">31 October 2026 &bull; date to yaad nhi (days since we met)</p>
+          <button id="replay-btn" class="btn btn-primary replay-btn">Replay Celebration 🔄</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox with Zoomed Polaroid & Handwritten Caption -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-polaroid">
+      <img src="" alt="Zoomed Polaroid" id="lightbox-img">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    </div>
+  </div>
+
+  <!-- Scripts (All local) -->
+  <script src="js/vendor/jquery.min.js"></script>
+  <script src="js/vendor/confetti.browser.js"></script>
+  <script src="js/tj-guide.js"></script>
+  <script src="js/effect.js"></script>
+</body>
+
+</html>
